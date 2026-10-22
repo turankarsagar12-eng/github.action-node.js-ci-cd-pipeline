@@ -19,17 +19,18 @@ steps:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-
-
     uses: actions/setup-node@v4
     with:
-      node-version: '22'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
 
-  - name: Install Dependencies
-    run: npm install
+      - name: Install Dependencies
+        run: npm install
 
-  - name: Run Tests
-    run: npm test
+      - name: Run Tests
+        run: npm test
 
 build-and-push:
 name: Build and Push Docker Image
