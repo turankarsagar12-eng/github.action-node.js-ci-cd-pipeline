@@ -2,7 +2,7 @@
 "name": "nodejs-demo-app",
 "version": "1.0.0",
 "description": "Node.js application for GitHub Actions CI/CD",
-"main": "app.js",
+"main": "nodejsapp.js",
 "scripts": {
 "start": "node app.js",
 "test": "node --test"
