@@ -12,7 +12,6 @@ test:
 name: Test Node.js Application
 runs-on: ubuntu-latest
 
-```
 steps:
   - name: Checkout Code
     uses: actions/checkout@v4
@@ -24,14 +23,14 @@ steps:
 
   - name: Run Tests
     run: npm test
-```
+
 
 build-and-push:
 name: Build and Push Docker Image
 needs: test
 runs-on: ubuntu-latest
 
-```
+
 steps:
   - name: Checkout Code
     uses: actions/checkout@v4
