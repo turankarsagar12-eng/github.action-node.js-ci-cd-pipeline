@@ -3,7 +3,7 @@ FROM node:22-alpine
 WORKDIR /app
 
 COPY package.json ./
-COPY app.js ./
+COPY nodejsapp.js ./
 
 EXPOSE 3000
 
