@@ -50,4 +50,4 @@ steps:
       context: .
       push: true
       tags: ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo-app:latest
-```
+
