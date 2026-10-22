@@ -1,39 +1,41 @@
-
 name: CI/CD Pipeline
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+push:
+branches:
+- main
+workflow_dispatch:
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+test:
+runs-on: ubuntu-latest
+steps:
+- name: Checkout Code
+uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
 
-      - name: Install Dependencies
-        run: npm install
+  - name: Setup Node.js
+    uses: actions/setup-node@v4
+    with:
+      node-version: '22'
 
-      - name: Run Tests
-        run: npm test
+  - name: Install Dependencies
+    run: npm install
 
-  build-and-push:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+  - name: Run Tests
+    run: npm test
 
-      - name: Setup Docker Buildx
-        uses: docker/setup-buildx-action@v3
+
+build-and-push:
+needs: test
+runs-on: ubuntu-latest
+steps:
+- name: Checkout Code
+uses: actions/checkout@v4
+
+
+  - name: Setup Docker Buildx
+    uses: docker/setup-buildx-action@v3
 
   - name: Login to Docker Hub
     env:
@@ -42,11 +44,13 @@ jobs:
     run: |
       printf '%s' "$DOCKERHUB_TOKEN" | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
 
-      - name: Build and Push Docker Image
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo-app:latest
+  - name: Build and Push Docker Image
+    uses: docker/build-push-action@v6
+    with:
+      context: .
+      push: true
+      tags: ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo-app:latest
+
+
 
 
