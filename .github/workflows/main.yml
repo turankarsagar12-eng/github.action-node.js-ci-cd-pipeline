@@ -13,6 +13,7 @@ steps:
 - name: Checkout Code
 uses: actions/checkout@v4
 
+```
   - name: Setup Node.js
     uses: actions/setup-node@v4
     with:
@@ -23,6 +24,7 @@ uses: actions/checkout@v4
 
   - name: Run Tests
     run: npm test
+```
 
 build-and-push:
 needs: test
@@ -31,6 +33,7 @@ steps:
 - name: Checkout Code
 uses: actions/checkout@v4
 
+```
   - name: Setup Docker Buildx
     uses: docker/setup-buildx-action@v3
 
@@ -47,7 +50,4 @@ uses: actions/checkout@v4
       context: .
       push: true
       tags: ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo-app:latest
-
-
-
-
+```
