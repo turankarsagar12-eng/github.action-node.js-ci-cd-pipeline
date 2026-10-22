@@ -4,7 +4,7 @@
 "description": "Node.js application for GitHub Actions CI/CD",
 "main": "nodejsapp.js",
 "scripts": {
-"start": "node app.js",
+"start": "node nodejsapp.js",
 "test": "node --test"
 }
 }
