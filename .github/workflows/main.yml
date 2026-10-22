@@ -11,7 +11,7 @@ test:
 name: Test Node.js Application
 runs-on: ubuntu-latest
 steps:
-yaml
+
       - name: Checkout Code
         uses: actions/checkout@v4
 
