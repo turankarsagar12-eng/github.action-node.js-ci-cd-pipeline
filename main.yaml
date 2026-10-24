@@ -42,7 +42,6 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
                 - name: Debug Docker Hub username
        
-
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6
         with:
