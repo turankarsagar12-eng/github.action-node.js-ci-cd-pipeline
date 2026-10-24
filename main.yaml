@@ -45,4 +45,4 @@ uses: actions/checkout@v4
     with:
       context: .
       push: true
-      tags: ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo-app:latest
+      tags: ${{ tsagar12 }}/nodejs-demo-app:latest
